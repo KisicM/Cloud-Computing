@@ -22,8 +22,8 @@ def registration_view(request):
 
 
 def check_if_student_exist(form):
-    return True
-    url = ''
+    #return True
+    url = 'http://localhost:3000/users/professors'
     data = {
         'jmbg': form.cleaned_data['jmbg'],
         'name': form.cleaned_data['first_name'] + " " + form.cleaned_data['last_name'],
