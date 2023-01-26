@@ -5,16 +5,7 @@
     <title>Students</title>
 </head>
 <body>
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
-
-    <form action="{% url 'register' %}" method="POST">
+    <form action="{% url 'student-register' %}" method="POST">
         {% csrf_token %}
         <label for="jmbg">JMBG</label>
         <input type="text" name="jmbg" id="jmbg">
@@ -30,7 +21,6 @@
         <br>
         <input type="submit" value="Register">
     </form>
-<!-- create table of all students -->
     <table>
         <thead>
             <tr>

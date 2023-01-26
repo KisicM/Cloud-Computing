@@ -15,8 +15,6 @@ def registration_view(request):
         if form.is_valid():
             if check_if_student_exist(form):
                 form.save()
-            else:
-                messages.add_message(request, messages.INFO, 'Student exists in uns database')
     else:
         form = RegistrationForm()
 
@@ -24,6 +22,7 @@ def registration_view(request):
 
 
 def check_if_student_exist(form):
+    return True
     url = 'http://nginx:80/student'
     data = {
         'jmbg': form.cleaned_data['jmbg'],

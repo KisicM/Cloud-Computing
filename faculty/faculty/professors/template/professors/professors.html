@@ -2,25 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Students</title>
+    <title>Professors</title>
 </head>
 <body>
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
-
-    <form action="{% url 'register' %}" method="POST">
+    <form action="{% url 'professor-register' %}" method="POST">
         {% csrf_token %}
         <label for="jmbg">JMBG</label>
         <input type="text" name="jmbg" id="jmbg">
-        <br>
-        <label for="index">Index</label>
-        <input type="text" name="index" id="index">
         <br>
         <label for="first_name">First Name</label>
         <input type="text" name="first_name" id="first_name">
@@ -30,24 +18,21 @@
         <br>
         <input type="submit" value="Register">
     </form>
-<!-- create table of all students -->
-    <table>
+<table>
         <thead>
             <tr>
                 <th>JMBG</th>
-                <th>Index</th>
                 <th>First Name</th>
                 <th>Last Name</th>
             </tr>
         </thead>
-        {% if students %}
+        {% if professors %}
         <tbody>
-            {% for student in students %}
+            {% for prof in professors %}
                 <tr>
-                    <td>{{ student.jmbg }}</td>
-                    <td>{{ student.index }}</td>
-                    <td>{{ student.first_name }}</td>
-                    <td>{{ student.last_name }}</td>
+                    <td>{{ prof.jmbg }}</td>
+                    <td>{{ prof.first_name }}</td>
+                    <td>{{ prof.last_name }}</td>
                 </tr>
             {% endfor %}
         </tbody>

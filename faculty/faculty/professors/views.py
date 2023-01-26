@@ -22,6 +22,7 @@ def registration_view(request):
 
 
 def check_if_student_exist(form):
+    return True
     url = ''
     data = {
         'jmbg': form.cleaned_data['jmbg'],
@@ -36,4 +37,4 @@ def check_if_student_exist(form):
 
 def all_students_view(request):
     professors = Professor.objects.all()
-    return render(request, 'professor/professor.html', {'professors': professors})
+    return render(request, 'professors/professors.html', {'professors': professors})
